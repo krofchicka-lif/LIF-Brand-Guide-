@@ -1,0 +1,1641 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>LIF — Brand Guide</title>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --sol:#FFAC00;
+    --palm:#0C7A4B;
+    --bluejean:#006298;
+    --poppy:#CA0000;
+    --shell:#F9EFE5;
+    --air:#FDFCF8;
+    --shell-deep:#F2E8DB;
+    --notblack:#2F2B2B;
+    --ink:#2F2B2B;
+    --rule:rgba(47,43,43,.18);
+    --rule-soft:rgba(47,43,43,.10);
+    --sans: "DM Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    --serif: "Cormorant Garamond", "Times New Roman", serif;
+    --mono: "JetBrains Mono", ui-monospace, Menlo, monospace;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  html,body{background:var(--air);color:var(--ink);font-family:var(--sans);font-weight:400;-webkit-font-smoothing:antialiased;}
+  body{font-size:15px;line-height:1.55;}
+  img{display:block;max-width:100%;}
+  a{color:inherit;text-decoration:none;}
+  ::selection{background:var(--sol);color:var(--notblack);}
+
+  /* -------- PAGE / LAYOUT -------- */
+  .page{
+    width:100%;
+    min-height:100vh;
+    padding:88px 80px 80px;
+    position:relative;
+    border-bottom:1px solid var(--rule-soft);
+    overflow:hidden;
+  }
+  .page.dense{padding-top:64px;padding-bottom:64px;}
+  .page-num{
+    position:absolute;top:32px;left:80px;
+    font-family:var(--mono);font-size:11px;letter-spacing:.18em;
+    text-transform:uppercase;color:rgba(47,43,43,.55);
+  }
+  .page-tag{
+    position:absolute;top:32px;right:80px;
+    font-family:var(--mono);font-size:11px;letter-spacing:.18em;
+    text-transform:uppercase;color:rgba(47,43,43,.55);
+  }
+  .page-foot{
+    position:absolute;bottom:32px;left:80px;right:80px;
+    display:flex;justify-content:space-between;align-items:flex-end;
+    font-family:var(--mono);font-size:11px;letter-spacing:.18em;
+    text-transform:uppercase;color:rgba(47,43,43,.55);
+  }
+
+  /* Color theme variants */
+  .page--shell{background:var(--air);}
+  .page--ink{background:var(--notblack);color:var(--shell);}
+  .page--sol{background:var(--sol);color:var(--notblack);}
+  .page--palm{background:var(--palm);color:var(--shell);}
+  .page--blue{background:var(--bluejean);color:var(--shell);}
+  .page--poppy{background:var(--poppy);color:var(--shell);}
+  .page--ink .page-num,.page--ink .page-tag,.page--ink .page-foot,
+  .page--palm .page-num,.page--palm .page-tag,.page--palm .page-foot,
+  .page--blue .page-num,.page--blue .page-tag,.page--blue .page-foot,
+  .page--poppy .page-num,.page--poppy .page-tag,.page--poppy .page-foot{color:rgba(249,239,229,.65);}
+
+  /* canvas-paper texture (subtle) */
+  .paper{
+    position:relative;
+  }
+  .paper::after{
+    content:"";position:absolute;inset:0;pointer-events:none;
+    background-image:
+      radial-gradient(circle at 20% 30%, rgba(0,0,0,.025) 0, transparent 60%),
+      radial-gradient(circle at 80% 70%, rgba(255,255,255,.05) 0, transparent 55%);
+    mix-blend-mode:multiply;
+  }
+
+  /* -------- TYPE -------- */
+  .display{
+    font-family:var(--serif);font-weight:400;
+    font-size:clamp(60px,9vw,160px);
+    line-height:.92;letter-spacing:-.02em;
+    text-wrap:balance;
+  }
+  .display em{font-style:italic;color:inherit;font-weight:300;}
+  .h1{
+    font-family:var(--serif);font-weight:400;
+    font-size:clamp(48px,6vw,96px);
+    line-height:.98;letter-spacing:-.015em;
+  }
+  .h2{
+    font-family:var(--serif);font-weight:400;
+    font-size:clamp(36px,4vw,64px);
+    line-height:1.02;letter-spacing:-.01em;
+  }
+  .h3{
+    font-family:var(--serif);font-weight:400;
+    font-size:clamp(24px,2.4vw,36px);
+    line-height:1.12;letter-spacing:-.005em;
+  }
+  .eyebrow{
+    font-family:var(--mono);font-weight:500;font-size:11px;
+    letter-spacing:.22em;text-transform:uppercase;
+    color:rgba(47,43,43,.6);
+  }
+  .page--ink .eyebrow,.page--palm .eyebrow,.page--blue .eyebrow,.page--poppy .eyebrow{color:rgba(249,239,229,.7);}
+  .eyebrow .dot{display:inline-block;width:5px;height:5px;border-radius:50%;background:var(--poppy);margin-right:10px;vertical-align:middle;margin-bottom:2px;}
+  .lede{
+    font-family:var(--serif);font-weight:300;
+    font-size:clamp(22px,2vw,30px);
+    line-height:1.35;letter-spacing:-.005em;
+    text-wrap:pretty;
+  }
+  .body{
+    font-family:var(--sans);font-weight:400;
+    font-size:15px;line-height:1.6;
+    max-width:60ch;text-wrap:pretty;
+  }
+  .body--lg{font-size:17px;line-height:1.55;}
+  .small{font-size:12px;line-height:1.5;}
+  .mono{font-family:var(--mono);text-transform:uppercase;letter-spacing:.18em;font-size:11px;}
+  .caps{text-transform:uppercase;letter-spacing:.16em;font-weight:500;font-size:12px;}
+
+  .rule{height:1px;background:var(--rule);width:100%;}
+  .rule--ink{background:rgba(249,239,229,.25);}
+
+  /* -------- GRID UTILS -------- */
+  .grid{display:grid;gap:48px;}
+  .cols-2{grid-template-columns:1fr 1fr;}
+  .cols-3{grid-template-columns:repeat(3,1fr);}
+  .cols-4{grid-template-columns:repeat(4,1fr);}
+  .cols-5{grid-template-columns:repeat(5,1fr);}
+  .cols-12-5{grid-template-columns:5fr 7fr;}
+  .cols-7-5{grid-template-columns:7fr 5fr;}
+  .stack{display:flex;flex-direction:column;}
+  .row{display:flex;}
+  .gap-8{gap:8px;}.gap-16{gap:16px;}.gap-24{gap:24px;}.gap-32{gap:32px;}.gap-48{gap:48px;}
+  .between{justify-content:space-between;}
+  .center{align-items:center;}
+  .baseline{align-items:baseline;}
+
+  /* -------- COVER -------- */
+  .cover{
+    height:100vh;min-height:880px;padding:48px;
+    background:var(--air);
+    display:grid;grid-template-rows:auto 1fr auto;
+    gap:32px;
+  }
+  .cover-top{display:flex;justify-content:space-between;align-items:flex-start;}
+  .cover-mark{display:flex;align-items:center;gap:14px;}
+  .cover-mark .icon{width:42px;height:42px;}
+  .cover-mark .word{height:24px;}
+  .cover-mid{
+    display:grid;grid-template-columns:1.05fr 1fr;gap:40px;align-items:end;
+  }
+  .cover-title{
+    font-family:var(--serif);font-weight:300;
+    font-size:clamp(90px,14vw,260px);
+    line-height:.86;letter-spacing:-.03em;
+  }
+  .cover-title em{font-style:italic;font-weight:300;color:var(--poppy);}
+  .cover-hero{
+    aspect-ratio: 4/5;
+    width:100%;
+    object-fit:cover;
+    border-radius:2px;
+  }
+  .cover-bot{
+    display:grid;grid-template-columns:1fr 1fr 1fr;gap:32px;align-items:end;
+    padding-top:24px;border-top:1px solid var(--rule);
+  }
+  .cover-bot .row-item{display:flex;flex-direction:column;gap:6px;}
+
+  /* -------- CONTENTS -------- */
+  .toc{
+    display:grid;grid-template-columns:1fr 1fr;gap:64px 80px;margin-top:64px;
+  }
+  .toc-section{display:flex;flex-direction:column;gap:14px;}
+  .toc-line{
+    display:grid;grid-template-columns:32px 1fr auto;gap:18px;align-items:baseline;
+    padding:10px 0;border-bottom:1px solid var(--rule-soft);
+  }
+  .toc-line .n{font-family:var(--mono);font-size:11px;letter-spacing:.18em;color:rgba(47,43,43,.55);}
+  .toc-line .t{font-family:var(--serif);font-size:22px;line-height:1.1;}
+  .toc-line .p{font-family:var(--mono);font-size:11px;letter-spacing:.18em;color:rgba(47,43,43,.55);}
+
+  /* -------- HERO BLOCKS -------- */
+  .pull{
+    font-family:var(--serif);font-weight:300;
+    font-size:clamp(40px,5vw,80px);
+    line-height:1.02;letter-spacing:-.012em;
+    text-wrap:balance;
+  }
+  .pull em{font-style:italic;font-weight:300;}
+
+  /* split half-half */
+  .split{display:grid;grid-template-columns:1fr 1fr;gap:0;min-height:calc(100vh - 0px);}
+  .split > *{padding:88px 64px;}
+
+  /* image figures */
+  .figure{display:flex;flex-direction:column;gap:14px;}
+  .figure img{width:100%;}
+  .figure .cap{font-family:var(--mono);font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:rgba(47,43,43,.6);}
+
+  /* swatch */
+  .swatch{
+    display:flex;flex-direction:column;gap:12px;
+  }
+  .swatch .chip{
+    height:200px;width:100%;border-radius:2px;position:relative;overflow:hidden;
+    background-image: radial-gradient(circle at 30% 20%, rgba(255,255,255,.18), transparent 60%),
+                       radial-gradient(circle at 70% 90%, rgba(0,0,0,.15), transparent 55%);
+  }
+  .swatch .name{font-family:var(--serif);font-size:28px;line-height:1;}
+  .swatch .meta{display:grid;grid-template-columns:auto 1fr;gap:6px 14px;font-family:var(--mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:rgba(47,43,43,.7);}
+  .swatch .meta b{font-weight:500;color:rgba(47,43,43,.5);}
+
+  /* combo dots */
+  .combo{display:flex;flex-direction:column;gap:10px;align-items:center;}
+  .combo .pair{display:flex;width:160px;height:80px;border-radius:2px;overflow:hidden;}
+  .combo .pair span{flex:1;}
+  .combo .label{font-family:var(--mono);font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:rgba(47,43,43,.6);}
+
+  /* Icon proof grid */
+  .icon-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:48px;justify-items:center;padding:48px 0;}
+  .icon-grid .swatch-icon{
+    width:120px;height:120px;display:flex;align-items:center;justify-content:center;
+  }
+
+  /* Glossary */
+  .glossary{display:flex;flex-direction:column;}
+  .glossary-row{
+    display:grid;grid-template-columns:240px 1fr;gap:40px;
+    padding:24px 0;border-top:1px solid var(--rule-soft);
+  }
+  .glossary-row:last-child{border-bottom:1px solid var(--rule-soft);}
+  .glossary-row .term{font-family:var(--serif);font-size:30px;line-height:1.05;}
+  .glossary-row .term em{font-style:italic;font-weight:300;}
+  .glossary-row .def{font-size:14px;line-height:1.6;max-width:60ch;}
+  .glossary-row .def .role{font-family:var(--mono);font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:rgba(47,43,43,.55);display:block;margin-top:6px;}
+
+  /* Phrases */
+  .phrase-card{
+    border-top:1px solid var(--rule-soft);
+    padding:32px 0;
+    display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:start;
+  }
+  .phrase-card:last-child{border-bottom:1px solid var(--rule-soft);}
+  .phrase-card .quote{
+    font-family:var(--serif);font-size:34px;line-height:1.08;letter-spacing:-.005em;
+  }
+  .phrase-card .note{font-size:13px;line-height:1.55;color:rgba(47,43,43,.7);max-width:48ch;}
+  .phrase-card .note .where{display:block;font-family:var(--mono);font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:rgba(47,43,43,.55);margin-bottom:8px;}
+
+  /* good/bad */
+  .gb{display:grid;grid-template-columns:1fr 1fr;gap:24px;}
+  .gb .cell{padding:20px 22px;border:1px solid var(--rule);border-radius:2px;background:rgba(255,255,255,.4);}
+  .gb .cell .tag{font-family:var(--mono);font-size:10px;letter-spacing:.2em;text-transform:uppercase;margin-bottom:10px;}
+  .gb .cell.bad .tag{color:var(--poppy);}
+  .gb .cell.good .tag{color:var(--palm);}
+  .gb .cell p{font-family:var(--serif);font-size:22px;line-height:1.2;}
+
+  /* lists */
+  .ulist{list-style:none;display:flex;flex-direction:column;gap:14px;}
+  .ulist li{display:grid;grid-template-columns:18px 1fr;gap:14px;align-items:baseline;font-size:15px;line-height:1.5;}
+  .ulist li::before{content:"";display:block;width:6px;height:6px;background:var(--ink);border-radius:50%;margin-top:8px;}
+  .page--ink .ulist li::before,.page--palm .ulist li::before,.page--blue .ulist li::before,.page--poppy .ulist li::before{background:var(--shell);}
+
+  .traitlist{display:grid;grid-template-columns:1fr 1fr;gap:24px 56px;}
+  .trait{display:flex;flex-direction:column;gap:6px;padding:18px 0;border-top:1px solid var(--rule-soft);}
+  .trait .n{font-family:var(--serif);font-size:32px;line-height:1;}
+  .trait .d{font-size:14px;line-height:1.55;color:rgba(47,43,43,.78);max-width:48ch;}
+
+  /* Bullets stacked vs vertical */
+  .twocol-list{column-count:2;column-gap:48px;}
+  .twocol-list li{break-inside:avoid;}
+
+  /* Cards (foundation) */
+  .found-row{
+    display:grid;grid-template-columns:200px 1fr;gap:48px;
+    padding:36px 0;border-top:1px solid var(--rule);
+  }
+  .found-row:last-child{border-bottom:1px solid var(--rule);}
+  .found-row .label{font-family:var(--mono);font-size:11px;letter-spacing:.22em;text-transform:uppercase;}
+  .found-row .text{font-family:var(--serif);font-size:36px;line-height:1.08;letter-spacing:-.005em;text-wrap:balance;max-width:24ch;}
+  .found-row .text--sm{font-size:26px;line-height:1.15;max-width:42ch;}
+
+  /* Type spec */
+  .typespec{display:grid;grid-template-columns:1fr;gap:0;}
+  .type-sample-serif{font-family:var(--serif);font-weight:400;font-size:200px;line-height:.85;letter-spacing:-.02em;}
+  .type-sample-sans{font-family:var(--sans);font-weight:500;font-size:200px;line-height:.85;letter-spacing:-.04em;}
+  .type-meta{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;padding-top:24px;border-top:1px solid var(--rule);}
+  .type-meta dt{font-family:var(--mono);font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:rgba(47,43,43,.55);margin-bottom:4px;}
+  .type-meta dd{font-size:14px;line-height:1.4;}
+  .alpha{font-family:var(--serif);font-size:48px;line-height:1.2;letter-spacing:-.005em;}
+  .alpha-sans{font-family:var(--sans);font-size:48px;line-height:1.2;letter-spacing:-.02em;font-weight:500;}
+
+  /* Photo treatment */
+  .mosaic{display:grid;grid-template-columns:repeat(12,1fr);gap:18px;}
+  .mosaic .m{position:relative;overflow:hidden;}
+  .mosaic .m img{width:100%;height:100%;object-fit:cover;}
+
+  /* Notification mockups */
+  .notif{
+    background:#fff;border:1px solid var(--rule);border-radius:14px;padding:14px 16px;
+    display:grid;grid-template-columns:40px 1fr auto;gap:12px;align-items:center;
+    box-shadow:0 18px 32px -24px rgba(0,0,0,.18);
+    max-width:520px;
+  }
+  .notif .app{width:40px;height:40px;border-radius:9px;background:var(--notblack);display:flex;align-items:center;justify-content:center;color:var(--shell);font-family:var(--serif);font-size:22px;line-height:1;}
+  .notif .title{font-size:13px;font-weight:600;color:#000;}
+  .notif .body-t{font-size:13px;color:#444;}
+  .notif .time{font-size:11px;color:#888;}
+
+  /* dashboard mock */
+  .dash{
+    background:#fff;border:1px solid var(--rule);border-radius:12px;padding:28px;
+    box-shadow:0 30px 60px -40px rgba(0,0,0,.2);
+  }
+  .dash-head{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:18px;}
+  .dash-head h4{font-family:var(--serif);font-size:32px;line-height:1.05;font-weight:400;color:#1a1a1a;}
+  .dash-head .who{font-family:var(--mono);font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:#999;}
+  .chain{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin:18px 0 28px;font-family:var(--mono);font-size:12px;letter-spacing:.12em;color:#444;text-transform:uppercase;}
+  .chain .node{padding:6px 10px;border:1px solid var(--rule);border-radius:999px;background:var(--shell);}
+  .chain .arr{opacity:.4;}
+  .signals{display:flex;gap:10px;flex-wrap:wrap;}
+  .signals .sig{font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;padding:6px 12px;border-radius:999px;background:var(--shell-deep);color:#333;}
+  .signals .sig.on{background:var(--palm);color:var(--shell);}
+  .signals .sig.live{background:var(--poppy);color:var(--shell);}
+  .metrics{display:grid;grid-template-columns:repeat(4,1fr);gap:0;border-top:1px solid var(--rule);margin-top:24px;padding-top:18px;}
+  .metrics .m{padding:0 18px;border-right:1px solid var(--rule-soft);}
+  .metrics .m:first-child{padding-left:0;}
+  .metrics .m:last-child{border-right:0;}
+  .metrics .l{font-family:var(--mono);font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:#999;}
+  .metrics .v{font-family:var(--serif);font-size:36px;line-height:1.1;color:#1a1a1a;margin-top:6px;}
+  .metrics .v small{font-size:14px;color:#999;font-family:var(--sans);font-weight:500;letter-spacing:0;}
+  .metrics .delta{font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--palm);margin-top:4px;}
+
+  /* Big numbers */
+  .truth-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:48px;}
+  .truth{display:flex;flex-direction:column;gap:14px;padding:24px 0;border-top:1px solid var(--rule);}
+  .truth .n{font-family:var(--mono);font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:rgba(47,43,43,.55);}
+  .truth h4{font-family:var(--serif);font-size:30px;line-height:1.1;font-weight:400;}
+  .truth p{font-size:14px;line-height:1.55;color:rgba(47,43,43,.75);}
+
+  /* mosaic of references */
+  .ref-row{display:grid;grid-template-columns:repeat(8,1fr);gap:16px;}
+  .ref-row .r{display:flex;flex-direction:column;gap:8px;}
+  .ref-row .r .name{font-family:var(--serif);font-size:18px;line-height:1.1;}
+  .ref-row .r .tone{font-family:var(--mono);font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:rgba(47,43,43,.55);}
+
+  /* Logo plate */
+  .logo-plate{
+    background:#fff;border:1px solid var(--rule);
+    aspect-ratio: 4/3;
+    display:flex;align-items:center;justify-content:center;
+    padding:48px;border-radius:2px;
+  }
+  .logo-plate img{max-height:60%;width:auto;}
+  .logo-plate.tall{aspect-ratio:3/4;}
+
+  /* tagline closer */
+  .closer-title{
+    font-family:var(--serif);font-weight:300;
+    font-size:clamp(60px,10vw,180px);
+    line-height:.95;letter-spacing:-.02em;
+    text-wrap:balance;
+  }
+  .closer-title em{font-style:italic;}
+
+  /* mosaic helpers (col/row spans) */
+  .m-c4{grid-column:span 4;} .m-c6{grid-column:span 6;} .m-c5{grid-column:span 5;}
+  .m-c7{grid-column:span 7;} .m-c8{grid-column:span 8;} .m-c3{grid-column:span 3;}
+  .m-c12{grid-column:span 12;}
+
+  /* Inline LIF mark */
+  .inline-mark{display:inline-flex;align-items:center;gap:8px;}
+  .inline-mark img{height:16px;width:auto;}
+  .lif-mark{
+    display:inline-block;
+    width:1em;height:1em;
+    background:url('assets/icon.png') center/contain no-repeat;
+    vertical-align:middle;
+  }
+
+  /* Print niceties */
+  @media print {
+    .page{break-after:page;min-height:auto;}
+    body{background:white;}
+  }
+
+  /* Side index (always visible) */
+  .index{
+    position:fixed;top:50%;right:24px;transform:translateY(-50%);
+    display:flex;flex-direction:column;gap:6px;
+    z-index:50;mix-blend-mode:difference;
+  }
+  .index a{
+    display:block;width:22px;height:1px;background:rgba(249,239,229,.6);transition:.25s;
+  }
+  .index a:hover, .index a.on{width:36px;background:var(--sol);}
+  @media (max-width: 900px){.index{display:none;}}
+
+  /* responsive: collapse grids on narrow */
+  @media (max-width: 1100px){
+    .page{padding:72px 40px 64px;}
+    .page-foot,.page-num,.page-tag{left:40px;right:40px;}
+    .cols-3,.cols-4{grid-template-columns:1fr 1fr;}
+    .cols-5{grid-template-columns:repeat(2,1fr);}
+    .toc{grid-template-columns:1fr;}
+    .ref-row{grid-template-columns:repeat(4,1fr);}
+  }
+</style>
+</head>
+<body>
+
+<!-- ============================== COVER ============================== -->
+<section class="page paper cover" data-screen-label="01 Cover">
+  <div class="cover-top">
+    <div class="cover-mark">
+      <span class="lif-mark icon" role="img" aria-label="LIF mark" style="width:42px;height:42px;color:var(--notblack);"></span>
+      <img class="word" src="assets/wordmark.png" alt="LIF">
+    </div>
+    <div class="mono">Edition 02 — Revised · 2026</div>
+  </div>
+
+  <div class="cover-mid">
+    <div>
+      <div class="eyebrow"><span class="dot"></span>The Brand Guide</div>
+      <h1 class="cover-title" style="margin-top:18px;">Love<br>It <em>Forward.</em></h1>
+      <p class="lede" style="max-width:38ch;margin-top:28px;">Trust infrastructure for relationship-layer commerce. A field manual for how we look, sound, and behave in the world.</p>
+    </div>
+    <div>
+      <img class="cover-hero" src="assets/hero-faces.png" alt="Two faces, cheek to cheek">
+    </div>
+  </div>
+
+  <div class="cover-bot">
+    <div class="row-item">
+      <div class="mono" style="color:rgba(47,43,43,.55)">For</div>
+      <div class="caps">Brand · Product · Comms</div>
+    </div>
+    <div class="row-item" style="text-align:center;">
+      <div class="mono" style="color:rgba(47,43,43,.55)">Tagline</div>
+      <div class="caps">Give Good. Feel Good. Love It Forward.</div>
+    </div>
+    <div class="row-item" style="text-align:right;">
+      <div class="mono" style="color:rgba(47,43,43,.55)">URL</div>
+      <div class="caps">loveitforward.co</div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================== CONTENTS ============================== -->
+<section class="page paper page--shell" data-screen-label="02 Contents">
+  <div class="page-num">02 / Contents</div>
+  <div class="page-tag">Field Manual</div>
+
+  <div style="max-width:1320px;">
+    <div class="eyebrow"><span class="dot"></span>What's inside</div>
+    <h2 class="h1" style="margin-top:18px;">A guide to the<br><em>chosen</em> distribution layer.</h2>
+    <p class="lede" style="margin-top:24px;max-width:62ch;">Word of mouth is the instinct. LIF is the infrastructure. This document is the way we present that idea — in language, in identity, in product.</p>
+  </div>
+
+  <div class="toc">
+    <div class="toc-section">
+      <div class="eyebrow">Part One — Foundation</div>
+      <div class="toc-line"><span class="n">01</span><span class="t">What LIF is</span><span class="p">p.03</span></div>
+      <div class="toc-line"><span class="n">02</span><span class="t">Brand foundation</span><span class="p">p.04</span></div>
+      <div class="toc-line"><span class="n">03</span><span class="t">Values, mission, tagline</span><span class="p">p.05</span></div>
+      <div class="toc-line"><span class="n">04</span><span class="t">The human truth</span><span class="p">p.06</span></div>
+      <div class="toc-line"><span class="n">05</span><span class="t">Word of mouth</span><span class="p">p.07</span></div>
+      <div class="toc-line"><span class="n">06</span><span class="t">Core truths · for whom</span><span class="p">p.08</span></div>
+      <div class="toc-line"><span class="n">07</span><span class="t">Is &amp; is not</span><span class="p">p.09</span></div>
+    </div>
+    <div class="toc-section">
+      <div class="eyebrow">Part Two — Voice</div>
+      <div class="toc-line"><span class="n">08</span><span class="t">Product language</span><span class="p">p.10</span></div>
+      <div class="toc-line"><span class="n">09</span><span class="t">Protected phrases</span><span class="p">p.11</span></div>
+      <div class="toc-line"><span class="n">10</span><span class="t">What we don't say</span><span class="p">p.12</span></div>
+      <div class="toc-line"><span class="n">11</span><span class="t">Voice &amp; personality</span><span class="p">p.13</span></div>
+      <div class="toc-line"><span class="n">12</span><span class="t">Writing &amp; design principles</span><span class="p">p.14</span></div>
+      <div class="toc-line"><span class="n">13</span><span class="t">Cultural references</span><span class="p">p.15</span></div>
+    </div>
+    <div class="toc-section">
+      <div class="eyebrow">Part Three — Identity</div>
+      <div class="toc-line"><span class="n">14</span><span class="t">Logo &amp; icon</span><span class="p">p.16</span></div>
+      <div class="toc-line"><span class="n">15</span><span class="t">Lockups</span><span class="p">p.17</span></div>
+      <div class="toc-line"><span class="n">16</span><span class="t">Colour palette</span><span class="p">p.18</span></div>
+      <div class="toc-line"><span class="n">17</span><span class="t">Recommended combinations</span><span class="p">p.19</span></div>
+      <div class="toc-line"><span class="n">18</span><span class="t">Typography</span><span class="p">p.20</span></div>
+      <div class="toc-line"><span class="n">19</span><span class="t">Photography</span><span class="p">p.21</span></div>
+      <div class="toc-line"><span class="n">20</span><span class="t">Word art</span><span class="p">p.22</span></div>
+      <div class="toc-line"><span class="n">21</span><span class="t">Visual art</span><span class="p">p.23</span></div>
+      <div class="toc-line"><span class="n">22</span><span class="t">Quote treatments</span><span class="p">p.24</span></div>
+    </div>
+    <div class="toc-section">
+      <div class="eyebrow">Part Four — Product &amp; Strategy</div>
+      <div class="toc-line"><span class="n">23</span><span class="t">Consumer notifications</span><span class="p">p.25</span></div>
+      <div class="toc-line"><span class="n">24</span><span class="t">Merchant dashboard</span><span class="p">p.26</span></div>
+      <div class="toc-line"><span class="n">25</span><span class="t">Core product truths</span><span class="p">p.27</span></div>
+      <div class="toc-line"><span class="n">26</span><span class="t">Strategic foundation</span><span class="p">p.28</span></div>
+      <div class="toc-line"><span class="n">27</span><span class="t">Why no one built this</span><span class="p">p.29</span></div>
+      <div class="toc-line"><span class="n">28</span><span class="t">The future</span><span class="p">p.30</span></div>
+    </div>
+  </div>
+
+  <div class="page-foot"><span>LIF Brand Guide</span><span>02 — Contents</span></div>
+</section>
+
+<!-- ============================== 01. WHAT LIF IS ============================== -->
+<section class="page paper page--ink" data-screen-label="03 What LIF Is">
+  <div class="page-num">03 / 01</div>
+  <div class="page-tag">Foundation</div>
+
+  <div class="grid cols-12-5" style="gap:80px;margin-top:48px;align-items:start;">
+    <div>
+      <div class="eyebrow"><span class="dot"></span>What LIF is</div>
+      <h2 class="display" style="margin-top:24px;">Trust infrastructure<br>for relationship-layer<br><em>commerce.</em></h2>
+    </div>
+    <div class="stack gap-24" style="padding-top:8px;">
+      <p class="lede">We are not changing behaviour. We are digitizing an instinct.</p>
+      <div class="rule rule--ink"></div>
+      <p class="body body--lg" style="max-width:46ch;">LIF transforms trusted human recommendation into measurable customer acquisition. Every day, someone has an experience they want to share with someone they love.</p>
+      <p class="body body--lg" style="max-width:46ch;color:rgba(249,239,229,.8);">“You have to try this. You need to go here. This is exactly you.”</p>
+      <p class="body body--lg" style="max-width:46ch;">That moment already exists. It happens millions of times a day. It just had no infrastructure.</p>
+      <p class="pull" style="margin-top:8px;">LIF is the <em>infrastructure.</em></p>
+    </div>
+  </div>
+
+  <div class="page-foot"><span>Part One — Foundation</span><span>What LIF Is</span></div>
+</section>
+
+<!-- ============================== 02. BRAND FOUNDATION ============================== -->
+<section class="page paper page--shell" data-screen-label="04 Brand Foundation">
+  <div class="page-num">04 / 02</div>
+  <div class="page-tag">Brand Foundation</div>
+
+  <div class="eyebrow"><span class="dot"></span>Promise · Position · Vision</div>
+  <h2 class="h1" style="margin-top:18px;max-width:18ch;">The three sentences<br>everything else <em>hangs on.</em></h2>
+
+  <div style="margin-top:48px;">
+    <div class="found-row">
+      <div class="label">Brand Promise</div>
+      <div class="text">LIF turns the most human moment in commerce into a measurable growth channel.</div>
+    </div>
+    <div class="found-row">
+      <div class="label">Brand Positioning</div>
+      <div>
+        <div class="text">Customer-funded growth infrastructure for brands where the experience is worth sharing.</div>
+        <div class="grid cols-3 gap-24" style="gap:24px;margin-top:28px;">
+          <div class="stack gap-8"><span class="mono" style="color:rgba(47,43,43,.55)">01 · Sits in</span><span class="caps">Post-redemption commerce</span><span class="small" style="color:rgba(47,43,43,.7)">The moment brands currently ignore.</span></div>
+          <div class="stack gap-8"><span class="mono" style="color:rgba(47,43,43,.55)">02 · Sits in</span><span class="caps">Behavioural science</span><span class="small" style="color:rgba(47,43,43,.7)">Gratitude, curiosity, and identity as acquisition drivers.</span></div>
+          <div class="stack gap-8"><span class="mono" style="color:rgba(47,43,43,.55)">03 · Sits in</span><span class="caps">Gift card infrastructure</span><span class="small" style="color:rgba(47,43,43,.7)">Rails that already exist in millions of checkouts.</span></div>
+        </div>
+      </div>
+    </div>
+    <div class="found-row">
+      <div class="label">Brand Vision</div>
+      <div class="text">A world where the best brands grow because their customers <em>choose</em> to introduce them — not because they paid for it.</div>
+    </div>
+  </div>
+
+  <div class="page-foot"><span>Part One — Foundation</span><span>Brand Foundation</span></div>
+</section>
+
+<!-- ============================== 03. VALUES / MISSION / TAGLINE ============================== -->
+<section class="page paper page--shell" data-screen-label="05 Values Mission Tagline">
+  <div class="page-num">05 / 03</div>
+  <div class="page-tag">Brand Foundation</div>
+
+  <div class="grid cols-7-5" style="gap:80px;align-items:start;">
+    <div>
+      <div class="eyebrow"><span class="dot"></span>Brand Values</div>
+      <h2 class="h1" style="margin-top:18px;">Five sentences,<br>in priority order.</h2>
+      <div class="traitlist" style="margin-top:36px;grid-template-columns:1fr;">
+        <div class="trait"><span class="n">Human connection over transaction.</span></div>
+        <div class="trait"><span class="n">Infrastructure over campaigns.</span></div>
+        <div class="trait"><span class="n">Proof over philosophy.</span></div>
+        <div class="trait"><span class="n">Experience over features.</span></div>
+        <div class="trait"><span class="n">Identity over incentive.</span></div>
+      </div>
+    </div>
+
+    <div class="stack gap-48">
+      <div>
+        <div class="eyebrow"><span class="dot"></span>Brand Mission</div>
+        <p class="pull" style="margin-top:18px;">To make customer-funded growth <em>measurable, scalable, and inevitable.</em></p>
+      </div>
+      <div class="rule"></div>
+      <div>
+        <div class="eyebrow"><span class="dot"></span>Brand Tagline</div>
+        <p class="display" style="margin-top:18px;font-size:clamp(50px,7vw,110px);">Give&nbsp;Good.<br>Feel&nbsp;Good.<br><em>Love It Forward.</em></p>
+      </div>
+    </div>
+  </div>
+
+  <div class="page-foot"><span>Part One — Foundation</span><span>Values · Mission · Tagline</span></div>
+</section>
+
+<!-- ============================== 04. HUMAN TRUTH ============================== -->
+<section class="page paper page--poppy" data-screen-label="06 Human Truth">
+  <div class="page-num">06 / 04</div>
+  <div class="page-tag">Core Truths</div>
+
+  <div class="grid cols-12-5" style="gap:80px;align-items:end;">
+    <div>
+      <div class="eyebrow"><span class="dot"></span>The Human Truth</div>
+      <h2 class="display" style="margin-top:24px;color:var(--shell);">Someone <em>chose</em> you.</h2>
+      <p class="lede" style="margin-top:36px;max-width:38ch;">That is the emotional centre of LIF.</p>
+    </div>
+    <div>
+      <img src="assets/face-eyeshadow.jpg" alt="Laughing face" style="width:100%;aspect-ratio:4/5;object-fit:cover;border-radius:2px;">
+    </div>
+  </div>
+
+  <div class="rule rule--ink" style="margin:64px 0 32px;"></div>
+
+  <div class="grid cols-4" style="gap:32px;">
+    <div class="stack gap-8"><span class="mono" style="color:rgba(249,239,229,.7)">01</span><div class="h3">Being chosen creates emotional reciprocity.</div></div>
+    <div class="stack gap-8"><span class="mono" style="color:rgba(249,239,229,.7)">02</span><div class="h3">Emotional reciprocity creates transmission.</div></div>
+    <div class="stack gap-8"><span class="mono" style="color:rgba(249,239,229,.7)">03</span><div class="h3">Transmission creates acquisition.</div></div>
+    <div class="stack gap-8"><span class="mono" style="color:rgba(249,239,229,.7)">04</span><div class="h3">The humanity <em>is</em> the mechanism.</div></div>
+  </div>
+
+  <div class="page-foot"><span>Part One — Foundation</span><span>The Human Truth</span></div>
+</section>
+
+<!-- ============================== 05. WORD OF MOUTH ============================== -->
+<section class="page paper page--shell" data-screen-label="07 Word of Mouth">
+  <div class="page-num">07 / 05</div>
+  <div class="page-tag">Core Truths</div>
+
+  <div class="eyebrow"><span class="dot"></span>Word of mouth</div>
+  <h2 class="h1" style="margin-top:18px;max-width:20ch;">Word of mouth was always the best channel. LIF is the first <em>infrastructure</em> built for it.</h2>
+
+  <div class="grid cols-2" style="gap:64px;margin-top:64px;">
+    <div class="stack gap-24">
+      <div class="eyebrow">Use this for</div>
+      <p class="lede">“Word of mouth” names the instinct the audience already knows.</p>
+      <p class="body body--lg">LIF names the infrastructure nobody had built yet. Use word of mouth as the on-ramp, then immediately move to LIF as the infrastructure layer.</p>
+    </div>
+    <div class="stack gap-24">
+      <div class="eyebrow">The distinction</div>
+      <div class="gb">
+        <div class="cell good"><div class="tag">Instinct</div><p>Word of mouth is what people already do.</p></div>
+        <div class="cell good"><div class="tag">Infrastructure</div><p>LIF makes it measurable, scalable, and inevitable.</p></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="page-foot"><span>Part One — Foundation</span><span>Word of Mouth</span></div>
+</section>
+
+<!-- ============================== 06. FOR MERCHANTS / CONSUMERS ============================== -->
+<section class="page paper page--shell" data-screen-label="08 For Whom">
+  <div class="page-num">08 / 06</div>
+  <div class="page-tag">Core Truths</div>
+
+  <div class="eyebrow"><span class="dot"></span>For whom</div>
+  <h2 class="h1" style="margin-top:18px;max-width:20ch;">Two audiences,<br>one motion.</h2>
+
+  <div class="grid cols-2" style="margin-top:64px;gap:0;border-top:1px solid var(--rule);">
+    <div style="padding:40px 56px 40px 0;border-right:1px solid var(--rule);">
+      <div class="eyebrow">For Merchants</div>
+      <p class="h2" style="margin-top:18px;">Your customers are already bringing you customers. <em>LIF lets you finally see it.</em></p>
+      <ul class="ulist" style="margin-top:28px;">
+        <li>The lowest CAC in your stack.</li>
+        <li>Your next customer is already being referred.</li>
+        <li>You just couldn't capture it.</li>
+      </ul>
+    </div>
+    <div style="padding:40px 0 40px 56px;">
+      <div class="eyebrow">For Consumers</div>
+      <p class="h2" style="margin-top:18px;">They didn't just buy something. <em>They started something.</em></p>
+      <ul class="ulist" style="margin-top:28px;">
+        <li>Community.</li>
+        <li>Connection.</li>
+        <li>A chain with their name on it.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="page-foot"><span>Part One — Foundation</span><span>For Merchants · For Consumers</span></div>
+</section>
+
+<!-- ============================== 07. IS / IS NOT ============================== -->
+<section class="page paper page--shell" data-screen-label="09 Is Is Not">
+  <div class="page-num">09 / 07</div>
+  <div class="page-tag">Core Truths</div>
+
+  <div class="eyebrow"><span class="dot"></span>Category posture</div>
+  <h2 class="h1" style="margin-top:18px;max-width:22ch;">A clear line<br>between <em>what we are</em><br>and what we aren't.</h2>
+
+  <div class="grid cols-2" style="margin-top:64px;gap:64px;">
+    <div>
+      <div class="eyebrow" style="color:var(--palm);">What LIF Is</div>
+      <ul class="ulist" style="margin-top:20px;font-family:var(--serif);">
+        <li style="font-size:30px;line-height:1.05;">Chosen distribution</li>
+        <li style="font-size:30px;line-height:1.05;">Trust infrastructure</li>
+        <li style="font-size:30px;line-height:1.05;">Measurable human recommendation</li>
+        <li style="font-size:30px;line-height:1.05;">Relationship-layer commerce</li>
+        <li style="font-size:30px;line-height:1.05;">Customer-funded growth</li>
+      </ul>
+    </div>
+    <div>
+      <div class="eyebrow" style="color:var(--poppy);">What LIF Is Not</div>
+      <ul class="ulist" style="margin-top:20px;font-family:var(--serif);">
+        <li style="font-size:30px;line-height:1.05;text-decoration:line-through;text-decoration-color:rgba(202,0,0,.55);text-decoration-thickness:1px;">A referral program</li>
+        <li style="font-size:30px;line-height:1.05;text-decoration:line-through;text-decoration-color:rgba(202,0,0,.55);text-decoration-thickness:1px;">A loyalty system</li>
+        <li style="font-size:30px;line-height:1.05;text-decoration:line-through;text-decoration-color:rgba(202,0,0,.55);text-decoration-thickness:1px;">A discount engine</li>
+        <li style="font-size:30px;line-height:1.05;text-decoration:line-through;text-decoration-color:rgba(202,0,0,.55);text-decoration-thickness:1px;">An influencer platform</li>
+        <li style="font-size:30px;line-height:1.05;text-decoration:line-through;text-decoration-color:rgba(202,0,0,.55);text-decoration-thickness:1px;">Campaign software</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="page-foot"><span>Part One — Foundation</span><span>Is · Is Not</span></div>
+</section>
+
+<!-- ============================== 08. PRODUCT LANGUAGE ============================== -->
+<section class="page paper page--shell" data-screen-label="10 Product Language">
+  <div class="page-num">10 / 08</div>
+  <div class="page-tag">Voice — Product Language</div>
+
+  <div class="eyebrow"><span class="dot"></span>Product Language</div>
+  <h2 class="h1" style="margin-top:18px;max-width:22ch;">Name things <em>once</em>,<br>and name them well.</h2>
+  <p class="lede" style="margin-top:18px;max-width:60ch;">Our product vocabulary is small on purpose. Use these terms exactly. Don't translate, soften, or substitute.</p>
+
+  <div class="glossary" style="margin-top:48px;">
+    <div class="glossary-row">
+      <div class="term">A <em>LIF</em><br><span class="mono" style="font-family:var(--mono);font-size:11px;letter-spacing:.18em;color:rgba(47,43,43,.55);">noun + verb</span></div>
+      <div class="def">The forward prompt is called a LIF. It fires immediately at the moment of redemption.<span class="role">Used in product UI, copy, voice</span></div>
+    </div>
+    <div class="glossary-row">
+      <div class="term">Customer-funded growth</div>
+      <div class="def">The category claim. Replaces "word-of-mouth infrastructure" everywhere.<span class="role">Category line — never paraphrase</span></div>
+    </div>
+    <div class="glossary-row">
+      <div class="term">The <em>reveal</em></div>
+      <div class="def">The moment the giver is disclosed at redemption. Not "the notification." Not "the unveil." The reveal.<span class="role">Always lowercase, always definite article</span></div>
+    </div>
+    <div class="glossary-row">
+      <div class="term">The <em>chain</em></div>
+      <div class="def">The sequence of LIFs from originator through the network. Not "the loop." Not "the journey." The chain.<span class="role">Use in attribution UI &amp; analytics</span></div>
+    </div>
+    <div class="glossary-row">
+      <div class="term">Top introducers</div>
+      <div class="def">The customers who start the most chains. Not "power users." Not "brand ambassadors." Top introducers — in the know.<span class="role">Merchant dashboard, leaderless</span></div>
+    </div>
+    <div class="glossary-row">
+      <div class="term">Forward rate</div>
+      <div class="def">The % of recipients who choose to send a LIF forward. Core metric. Appears in all decks and dashboards.<span class="role">Primary KPI</span></div>
+    </div>
+  </div>
+
+  <div class="page-foot"><span>Part Two — Voice</span><span>Product Language</span></div>
+</section>
+
+<!-- ============================== 09. PROTECTED PHRASES ============================== -->
+<section class="page paper page--ink" data-screen-label="11 Protected Phrases">
+  <div class="page-num">11 / 09</div>
+  <div class="page-tag">Voice — Protected Phrases</div>
+
+  <div class="eyebrow"><span class="dot"></span>Protected Phrases</div>
+  <h2 class="h1" style="margin-top:18px;max-width:22ch;">Lines we use<br><em>verbatim.</em> Always.</h2>
+  <p class="lede" style="margin-top:18px;max-width:62ch;color:rgba(249,239,229,.85);">These are not slogans. They are load-bearing. Don't combine them, don't soften them, don't replace them with a fresher take.</p>
+
+  <div style="margin-top:48px;">
+    <div class="phrase-card">
+      <div class="quote">Gift cards end at redemption.<br>LIF begins at redemption.</div>
+      <div class="note"><span class="where">Used as / The pivot point</span>Always two lines. Never combined into one.</div>
+    </div>
+    <div class="phrase-card">
+      <div class="quote">Commerce built infrastructure for transactions. LIF builds infrastructure for introductions.</div>
+      <div class="note"><span class="where">Used as / Category-defining line</span>Strongest in opening positions and closers.</div>
+    </div>
+    <div class="phrase-card">
+      <div class="quote">We're not changing behaviour.<br>We're <em>digitizing</em> an instinct.</div>
+      <div class="note"><span class="where">Used as / Product thesis</span>Core to any "what is LIF" explanation.</div>
+    </div>
+    <div class="phrase-card">
+      <div class="quote">The referral happened. The brand just couldn't see it.</div>
+      <div class="note"><span class="where">Used as / The problem slide</span>Removes speculation. Sets up the measurement story.</div>
+    </div>
+    <div class="phrase-card">
+      <div class="quote">LIF is a post-redemption acquisition layer built on top of existing gift card infrastructure.</div>
+      <div class="note"><span class="where">Used as / Company description</span>Use in bios, decks, and one-liners.</div>
+    </div>
+    <div class="phrase-card">
+      <div class="quote">Platforms move money. LIF moves people.</div>
+      <div class="note"><span class="where">Used as / Compliance &amp; integration close</span>Never changes.</div>
+    </div>
+    <div class="phrase-card">
+      <div class="quote">Sharing is optional — authorship is the reward.</div>
+      <div class="note"><span class="where">Used as / Identity principle</span>Lives in product UI and the identity slide.</div>
+    </div>
+    <div class="phrase-card">
+      <div class="quote">Not a leaderboard. Not a score. Not a social feed.</div>
+      <div class="note"><span class="where">Used as / Privacy principle</span>Defines what LIF is not, by what it never builds.</div>
+    </div>
+    <div class="phrase-card">
+      <div class="quote">Human proof first. Operator metrics second.</div>
+      <div class="note"><span class="where">Used as / Merchant dashboard organising principle</span>Drives the layout of every analytics surface.</div>
+    </div>
+    <div class="phrase-card">
+      <div class="quote">Attention is dead. Humans are the last algorithm.</div>
+      <div class="note"><span class="where">Used as / The Why Now reframe</span>Use in talks and editorial-tone copy.</div>
+    </div>
+    <div class="phrase-card">
+      <div class="quote">Connection is the new currency.</div>
+      <div class="note"><span class="where">Used as / Closing line</span>End on this when you need a single sentence.</div>
+    </div>
+  </div>
+
+  <div class="page-foot"><span>Part Two — Voice</span><span>Protected Phrases</span></div>
+</section>
+
+<!-- ============================== 10. WHAT WE DON'T SAY ============================== -->
+<section class="page paper page--shell" data-screen-label="12 Don't Say">
+  <div class="page-num">12 / 10</div>
+  <div class="page-tag">Voice — Tone Guardrails</div>
+
+  <div class="eyebrow"><span class="dot"></span>What we don't say</div>
+  <h2 class="h1" style="margin-top:18px;max-width:24ch;">Restraint is the<br><em>voice.</em></h2>
+
+  <div class="grid cols-2" style="gap:64px;margin-top:56px;">
+    <div class="stack gap-32">
+      <div class="found-row" style="border-top:1px solid var(--rule);padding:24px 0;grid-template-columns:1fr;gap:8px;">
+        <div class="label">01 — Don't over-explain.</div>
+        <p class="body body--lg" style="max-width:46ch;">Elite decks trust the audience. State the point once and move on.</p>
+      </div>
+      <div class="found-row" style="border-top:1px solid var(--rule);padding:24px 0;grid-template-columns:1fr;gap:8px;">
+        <div class="label">02 — Don't lead with philosophy.</div>
+        <p class="body body--lg" style="max-width:46ch;">Lead with the broken system. Earn the vision.</p>
+      </div>
+      <div class="found-row" style="border-top:1px solid var(--rule);padding:24px 0;grid-template-columns:1fr;gap:8px;">
+        <div class="label">03 — "No incentives" — say it once.</div>
+        <p class="body body--lg" style="max-width:46ch;">Say it once and it's a feature. Say it three times and it sounds defensive.</p>
+      </div>
+    </div>
+    <div class="stack gap-32">
+      <div class="found-row" style="border-top:1px solid var(--rule);padding:24px 0;grid-template-columns:1fr;gap:8px;">
+        <div class="label">04 — No corporate language.</div>
+        <p class="body body--lg" style="max-width:46ch;">Not "facilitate." Not "leverage." Not "drive engagement." Human words only.</p>
+      </div>
+      <div class="found-row" style="border-top:1px solid var(--rule);padding:24px 0;grid-template-columns:1fr;gap:8px;">
+        <div class="label">05 — Don't mention competition.</div>
+        <p class="body body--lg" style="max-width:46ch;">LIF is its own category. There is nothing to compare to. Speak from that position.</p>
+      </div>
+      <div class="found-row" style="border-top:1px solid var(--rule);padding:24px 0;grid-template-columns:1fr;gap:8px;">
+        <div class="label">+ Spelling</div>
+        <p class="body body--lg" style="max-width:46ch;">British/Canadian spelling throughout (<em>behaviour</em>, not behavior).</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="page-foot"><span>Part Two — Voice</span><span>Tone Guardrails</span></div>
+</section>
+
+<!-- ============================== 11. VOICE & PERSONALITY ============================== -->
+<section class="page paper page--shell" data-screen-label="13 Voice Personality">
+  <div class="page-num">13 / 11</div>
+  <div class="page-tag">Voice &amp; Tone</div>
+
+  <div class="grid cols-7-5" style="gap:80px;align-items:start;">
+    <div>
+      <div class="eyebrow"><span class="dot"></span>Brand personality</div>
+      <h2 class="display" style="margin-top:24px;font-size:clamp(60px,7vw,120px);">Warm and direct.<br><em>Never loud.</em></h2>
+    </div>
+    <div class="stack gap-16" style="padding-top:8px;">
+      <div class="eyebrow">Tone of voice</div>
+      <p class="body body--lg">We never announce emotion. We quietly witness behaviour. Confidence without polish. Wit over hype.</p>
+    </div>
+  </div>
+
+  <div class="traitlist" style="margin-top:56px;">
+    <div class="trait"><span class="n">Charismatic</span><span class="d">Spirited, inspiring, magnetic. LIF has a point of view and holds it with confidence.</span></div>
+    <div class="trait"><span class="n">Approachable</span><span class="d">Inclusive, optimistic, human. Never corporate. Never academic. Never cold.</span></div>
+    <div class="trait"><span class="n">Smart</span><span class="d">Intelligent without jargon. Clever without trying. Wit over hype.</span></div>
+    <div class="trait"><span class="n">Authentic</span><span class="d">Intentional, confident, transparent. Everything we say is provable.</span></div>
+    <div class="trait" style="grid-column:1/-1;"><span class="n">Warm</span><span class="d">Empathetic, engaging, kind. But not soft. Warm is not weak.</span></div>
+  </div>
+
+  <div class="page-foot"><span>Part Two — Voice</span><span>Voice &amp; Personality</span></div>
+</section>
+
+<!-- ============================== 12. WRITING & DESIGN PRINCIPLES ============================== -->
+<section class="page paper page--shell" data-screen-label="14 Writing Design">
+  <div class="page-num">14 / 12</div>
+  <div class="page-tag">Voice &amp; Tone</div>
+
+  <div class="grid cols-2" style="gap:64px;align-items:start;">
+    <div>
+      <div class="eyebrow"><span class="dot"></span>Writing Principles</div>
+      <h2 class="h2" style="margin-top:18px;">Seven rules.<br>That's it.</h2>
+      <ul class="ulist" style="margin-top:28px;font-size:18px;">
+        <li>Short sentences over long ones.</li>
+        <li>Active over passive.</li>
+        <li>Concrete over abstract.</li>
+        <li>Human over corporate.</li>
+        <li>One idea per sentence.</li>
+        <li>Earn the emotion — don't assert it.</li>
+        <li>British/Canadian spelling throughout.</li>
+      </ul>
+    </div>
+    <div>
+      <div class="eyebrow"><span class="dot"></span>Design Principle</div>
+      <h2 class="h2" style="margin-top:18px;">"Humanity<br>without <em>performance.</em>"</h2>
+      <p class="body body--lg" style="margin-top:24px;">The brand should never announce emotion, explain emotion, over-frame emotion, or perform sincerity. It quietly witnesses human behaviour.</p>
+
+      <div class="gb" style="margin-top:32px;">
+        <div class="cell bad"><div class="tag">Don't</div><p>"Human connection changes everything."</p></div>
+        <div class="cell good"><div class="tag">Do</div><p>"This meant more than you know."</p></div>
+        <div class="cell bad"><div class="tag">Don't</div><p>"A revolutionary new growth channel."</p></div>
+        <div class="cell good"><div class="tag">Do</div><p>"4 people came because Amy chose Rachel."</p></div>
+      </div>
+      <p class="small" style="margin-top:18px;color:rgba(47,43,43,.65);max-width:48ch;">The second trusts the audience. The first performs for them.</p>
+    </div>
+  </div>
+
+  <div class="page-foot"><span>Part Two — Voice</span><span>Writing &amp; Design Principles</span></div>
+</section>
+
+<!-- ============================== 13. CULTURAL REFERENCES ============================== -->
+<section class="page paper page--shell" data-screen-label="15 Cultural References">
+  <div class="page-num">15 / 13</div>
+  <div class="page-tag">Voice &amp; Tone</div>
+
+  <div class="eyebrow"><span class="dot"></span>Cultural references</div>
+  <h2 class="h1" style="margin-top:18px;max-width:22ch;">Energetic,<br><em>not literal.</em></h2>
+  <p class="lede" style="margin-top:18px;max-width:60ch;">Use these as channel-set when briefing photography, art direction, and copy. We borrow the feeling, never the form.</p>
+
+  <div class="ref-row" style="margin-top:56px;">
+    <div class="r" style="grid-column:span 2;"><span class="name">Jon &amp; Vinny's</span><span class="tone">Restraint, warmth, regulars</span></div>
+    <div class="r" style="grid-column:span 2;"><span class="name">Flamingo Estate</span><span class="tone">Sensory, sun-soaked, exact</span></div>
+    <div class="r" style="grid-column:span 2;"><span class="name">Early Are.na</span><span class="tone">Quiet intelligence, no spectacle</span></div>
+    <div class="r" style="grid-column:span 2;"><span class="name">Oatly</span><span class="tone">Voice that argues for itself</span></div>
+    <div class="r" style="grid-column:span 2;"><span class="name">Old Kinfolk (before parody)</span><span class="tone">Editorial calm, human scale</span></div>
+    <div class="r" style="grid-column:span 2;"><span class="name">Cereal / The Gourmand</span><span class="tone">Print-grade typography</span></div>
+    <div class="r" style="grid-column:span 2;"><span class="name">Wonder Valley</span><span class="tone">Earthy, distilled, slow</span></div>
+    <div class="r" style="grid-column:span 2;"><span class="name">Acne Studios campaigns</span><span class="tone">Confident, deadpan, dry</span></div>
+  </div>
+
+  <div class="rule" style="margin:64px 0 32px;"></div>
+  <div class="grid cols-5" style="gap:32px;">
+    <div class="stack gap-8"><span class="mono" style="color:rgba(47,43,43,.55)">Shared trait</span><p class="h3">Restraint.</p></div>
+    <div class="stack gap-8"><span class="mono" style="color:rgba(47,43,43,.55)">Shared trait</span><p class="h3">Emotional intelligence.</p></div>
+    <div class="stack gap-8"><span class="mono" style="color:rgba(47,43,43,.55)">Shared trait</span><p class="h3">Warmth without performance.</p></div>
+    <div class="stack gap-8"><span class="mono" style="color:rgba(47,43,43,.55)">Shared trait</span><p class="h3">Confidence without polish.</p></div>
+    <div class="stack gap-8"><span class="mono" style="color:rgba(47,43,43,.55)">Shared trait</span><p class="h3">Humanity without explanation.</p></div>
+  </div>
+
+  <div class="page-foot"><span>Part Two — Voice</span><span>Cultural References</span></div>
+</section>
+
+<!-- ============================== PART III DIVIDER ============================== -->
+<section class="page paper page--sol" data-screen-label="16 Identity Divider">
+  <div class="page-num" style="color:rgba(47,43,43,.55)">— Part Three —</div>
+  <div class="page-tag" style="color:rgba(47,43,43,.55)">Visual Identity</div>
+  <div style="height:30vh;"></div>
+  <div class="eyebrow" style="color:rgba(47,43,43,.7)"><span class="dot" style="background:var(--notblack)"></span>Part three</div>
+  <h2 class="display" style="margin-top:24px;font-size:clamp(80px,13vw,220px);">Visual<br><em>Identity.</em></h2>
+  <div class="grid cols-3" style="gap:32px;margin-top:80px;max-width:1080px;">
+    <p class="body body--lg" style="max-width:38ch;">The visual system is editorial and breathable. Lightly imperfect — human-scaled. Tactile, calm, restrained.</p>
+    <p class="body body--lg" style="max-width:38ch;"><b>Not</b> glossy or hyper-designed. Not cinematic startup minimalism. Not emotional UI theatre.</p>
+    <p class="pull" style="font-size:clamp(30px,3vw,46px);max-width:18ch;">Emotional restraint <em>creates</em> trust.</p>
+  </div>
+  <div class="page-foot" style="color:rgba(47,43,43,.55)"><span>LIF Brand Guide</span><span>Part Three Opens</span></div>
+</section>
+
+<!-- ============================== 14. LOGO & ICON ============================== -->
+<section class="page paper page--shell" data-screen-label="17 Logo Icon">
+  <div class="page-num">17 / 14</div>
+  <div class="page-tag">Visual Identity — Logo</div>
+
+  <div class="grid cols-2" style="gap:80px;align-items:start;">
+    <div>
+      <div class="eyebrow"><span class="dot"></span>Logo &amp; icon</div>
+      <h2 class="h1" style="margin-top:18px;max-width:18ch;">Two halves,<br>slanted <em>forward.</em></h2>
+      <p class="body body--lg" style="margin-top:24px;max-width:48ch;">The LIF icon is two semi-circles coming together to create a whole, slanted forward. It signifies community, momentum, and the cycle of generosity — while embodying cycles in nature: a rising sun, the ebb and flow of waves.</p>
+      <div class="grid cols-2" style="margin-top:36px;gap:16px;">
+        <div class="stack gap-8"><span class="eyebrow">Meaning</span><span>Community</span></div>
+        <div class="stack gap-8"><span class="eyebrow">Meaning</span><span>Momentum</span></div>
+        <div class="stack gap-8"><span class="eyebrow">Meaning</span><span>Cycle of generosity</span></div>
+        <div class="stack gap-8"><span class="eyebrow">Meaning</span><span>Rising sun · waves</span></div>
+      </div>
+    </div>
+    <div class="logo-plate" style="background:var(--shell);border:1px solid var(--rule);aspect-ratio:1/1;">
+      <span class="lif-mark" role="img" aria-label="LIF mark" style="width:62%;height:62%;color:var(--notblack);"></span>
+    </div>
+  </div>
+
+  <div class="page-foot"><span>Part Three — Identity</span><span>Logo &amp; Icon</span></div>
+</section>
+
+<!-- ============================== 15. LOCKUPS ============================== -->
+<section class="page paper page--shell" data-screen-label="18 Lockups">
+  <div class="page-num">18 / 15</div>
+  <div class="page-tag">Visual Identity — Lockups</div>
+
+  <div class="eyebrow"><span class="dot"></span>Lockups</div>
+  <h2 class="h1" style="margin-top:18px;max-width:24ch;">Four configurations,<br><em>each with its place.</em></h2>
+
+  <div class="grid cols-2" style="gap:32px;margin-top:48px;">
+    <div class="figure">
+      <div class="logo-plate" style="aspect-ratio:16/10;">
+        <div style="display:flex;flex-direction:column;align-items:center;gap:18px;">
+          <div style="display:flex;align-items:center;gap:20px;color:var(--notblack);">
+            <span class="lif-mark" role="img" aria-label="LIF mark" style="width:120px;height:120px;"></span>
+            <img src="assets/wordmark.png" alt="LIF" style="width:200px;height:auto;">
+          </div>
+          <div style="font-family:var(--mono);font-weight:700;font-size:13px;letter-spacing:.42em;color:var(--ink);margin-top:10px;">L O V E&nbsp;&nbsp;I T&nbsp;&nbsp;F O R W A R D</div>
+          <div style="font-family:var(--mono);font-weight:700;font-size:11px;letter-spacing:.32em;color:var(--ink);">GIVE GOOD&nbsp;&nbsp;·&nbsp;&nbsp;FEEL GOOD</div>
+        </div>
+      </div>
+      <div class="cap">01 — Full Official Lockup · use at min 330px wide</div>
+    </div>
+    <div class="figure">
+      <div class="logo-plate" style="aspect-ratio:16/10;">
+        <div style="display:flex;align-items:center;gap:18px;color:var(--notblack);">
+          <span class="lif-mark" role="img" aria-label="LIF mark" style="width:88px;height:88px;"></span>
+          <img src="assets/wordmark.png" alt="LIF" style="height:64px;">
+        </div>
+      </div>
+      <div class="cap">02 — Primary Lockup · use when space allows both mark and name</div>
+    </div>
+    <div class="figure">
+      <div class="logo-plate" style="aspect-ratio:16/10;">
+        <img src="assets/wordmark.png" alt="LIF" style="max-height:46%;">
+      </div>
+      <div class="cap">03 — Primary Wordmark · most flexible use case</div>
+    </div>
+    <div class="figure">
+      <div class="logo-plate" style="aspect-ratio:16/10;">
+        <span class="lif-mark" role="img" aria-label="LIF mark" style="width:42%;height:62%;color:var(--notblack);"></span>
+      </div>
+      <div class="cap">04 — Icon Only · use when brand is already established</div>
+    </div>
+  </div>
+
+  <div class="page-foot"><span>Part Three — Identity</span><span>Lockups</span></div>
+</section>
+
+<!-- ============================== 16. COLOR PALETTE ============================== -->
+<section class="page paper page--shell" data-screen-label="19 Palette">
+  <div class="page-num">19 / 16</div>
+  <div class="page-tag">Visual Identity — Palette</div>
+
+  <div class="eyebrow"><span class="dot"></span>Colour palette</div>
+  <h2 class="h1" style="margin-top:18px;max-width:24ch;">Four primaries.<br>Two supports.<br><em>Equal weight.</em></h2>
+  <p class="lede" style="margin-top:18px;max-width:60ch;">The four foundational colours signify vibrancy, vitality, and a childlike playfulness. The two secondary colours — Shell and Not Black — handle backgrounds and text, avoiding pure white and pure black wherever possible.</p>
+
+  <div class="eyebrow" style="margin-top:48px;">Primary</div>
+  <div class="grid cols-4" style="gap:32px;margin-top:18px;">
+    <div class="swatch">
+      <div class="chip" style="background:var(--sol);"></div>
+      <div class="name">Sol</div>
+      <div class="meta"><b>HEX</b>#FFAC00 <b>RGB</b>255 / 172 / 0 <b>CMYK</b>0 / 37 / 100 / 0 <b>PMS</b>1235 C</div>
+    </div>
+    <div class="swatch">
+      <div class="chip" style="background:var(--palm);"></div>
+      <div class="name">Palm</div>
+      <div class="meta"><b>HEX</b>#0C7A4B <b>RGB</b>12 / 122 / 75 <b>CMYK</b>99 / 25 / 96 / 12 <b>PMS</b>7726 C</div>
+    </div>
+    <div class="swatch">
+      <div class="chip" style="background:var(--bluejean);"></div>
+      <div class="name">Blue Jean</div>
+      <div class="meta"><b>HEX</b>#006298 <b>RGB</b>0 / 98 / 152 <b>CMYK</b>94 / 62 / 17 / 2 <b>PMS</b>7691 C</div>
+    </div>
+    <div class="swatch">
+      <div class="chip" style="background:var(--poppy);"></div>
+      <div class="name">Poppy</div>
+      <div class="meta"><b>HEX</b>#CA0000 <b>RGB</b>202 / 0 / 0 <b>CMYK</b>14 / 100 / 100 / 5 <b>PMS</b>2035 C</div>
+    </div>
+  </div>
+
+  <div class="eyebrow" style="margin-top:56px;">Secondary</div>
+  <div class="grid cols-4" style="gap:32px;margin-top:18px;">
+    <div class="swatch">
+      <div class="chip" style="background:var(--shell);border:1px solid var(--rule-soft);"></div>
+      <div class="name">Shell</div>
+      <div class="meta"><b>HEX</b>#F9EFE5 <b>RGB</b>249 / 239 / 229 <b>CMYK</b>2 / 5 / 8 / 0 <b>USE</b>Background</div>
+    </div>
+    <div class="swatch">
+      <div class="chip" style="background:var(--notblack);"></div>
+      <div class="name">Not Black</div>
+      <div class="meta"><b>HEX</b>#2F2B2B <b>RGB</b>47 / 43 / 43 <b>CMYK</b>68 / 65 / 63 / 65 <b>PMS</b>Black C</div>
+    </div>
+    <div style="grid-column:span 2;display:flex;align-items:flex-end;padding-bottom:14px;">
+      <p class="body" style="max-width:38ch;color:rgba(47,43,43,.7);">Use Shell as default canvas. Reach for Not Black for text, dark plates, and high-contrast moments. Avoid pure #FFFFFF and #000000.</p>
+    </div>
+  </div>
+
+  <div class="page-foot"><span>Part Three — Identity</span><span>Colour Palette</span></div>
+</section>
+
+<!-- ============================== 17. RECOMMENDED COMBINATIONS ============================== -->
+<section class="page paper page--shell" data-screen-label="20 Combos">
+  <div class="page-num">20 / 17</div>
+  <div class="page-tag">Visual Identity — Palette</div>
+
+  <div class="eyebrow"><span class="dot"></span>Recommended combinations</div>
+  <h2 class="h1" style="margin-top:18px;max-width:24ch;">Flexible, but <em>opinionated.</em></h2>
+  <p class="body body--lg" style="margin-top:18px;max-width:60ch;">There is a lot of flexibility in colour usage. The combinations below are our recommended primary pairings. Secondary colours can be used with any of the primary colours.</p>
+
+  <div class="eyebrow" style="margin-top:48px;">Primary pairings · recommended</div>
+  <div class="grid cols-4" style="gap:32px;margin-top:24px;">
+    <div class="combo"><div class="pair"><span style="background:var(--sol);"></span><span style="background:var(--palm);"></span></div><div class="label">Sol + Palm</div></div>
+    <div class="combo"><div class="pair"><span style="background:var(--sol);"></span><span style="background:var(--bluejean);"></span></div><div class="label">Sol + Blue Jean</div></div>
+    <div class="combo"><div class="pair"><span style="background:var(--palm);"></span><span style="background:var(--bluejean);"></span></div><div class="label">Palm + Blue Jean</div></div>
+    <div class="combo"><div class="pair"><span style="background:var(--bluejean);"></span><span style="background:var(--poppy);"></span></div><div class="label">Blue Jean + Poppy</div></div>
+  </div>
+
+  <div class="eyebrow" style="margin-top:48px;">Primary + secondary · always allowed</div>
+  <div class="grid cols-4" style="gap:32px;margin-top:24px;">
+    <div class="combo"><div class="pair"><span style="background:var(--sol);"></span><span style="background:var(--shell);border-left:1px solid var(--rule-soft);"></span></div><div class="label">Sol + Shell</div></div>
+    <div class="combo"><div class="pair"><span style="background:var(--palm);"></span><span style="background:var(--shell);border-left:1px solid var(--rule-soft);"></span></div><div class="label">Palm + Shell</div></div>
+    <div class="combo"><div class="pair"><span style="background:var(--bluejean);"></span><span style="background:var(--shell);border-left:1px solid var(--rule-soft);"></span></div><div class="label">Blue Jean + Shell</div></div>
+    <div class="combo"><div class="pair"><span style="background:var(--poppy);"></span><span style="background:var(--shell);border-left:1px solid var(--rule-soft);"></span></div><div class="label">Poppy + Shell</div></div>
+    <div class="combo"><div class="pair"><span style="background:var(--sol);"></span><span style="background:var(--notblack);"></span></div><div class="label">Sol + Not Black</div></div>
+    <div class="combo"><div class="pair"><span style="background:var(--palm);"></span><span style="background:var(--notblack);"></span></div><div class="label">Palm + Not Black</div></div>
+    <div class="combo"><div class="pair"><span style="background:var(--bluejean);"></span><span style="background:var(--notblack);"></span></div><div class="label">Blue Jean + Not Black</div></div>
+    <div class="combo"><div class="pair"><span style="background:var(--poppy);"></span><span style="background:var(--notblack);"></span></div><div class="label">Poppy + Not Black</div></div>
+  </div>
+
+  <div class="icon-grid" style="margin-top:64px;border-top:1px solid var(--rule);padding-top:64px;">
+    <div class="swatch-icon" style="background:var(--sol);border-radius:50%;"></div>
+    <div class="swatch-icon" style="background:var(--palm);border-radius:50%;"></div>
+    <div class="swatch-icon" style="background:var(--bluejean);border-radius:50%;"></div>
+    <div class="swatch-icon" style="background:var(--poppy);border-radius:50%;"></div>
+    <div class="swatch-icon" style="background:var(--shell-deep);border-radius:50%;"></div>
+    <div class="swatch-icon" style="background:var(--notblack);border-radius:50%;"></div>
+  </div>
+
+  <div class="page-foot"><span>Part Three — Identity</span><span>Recommended Combinations</span></div>
+</section>
+
+<!-- ============================== 18. TYPOGRAPHY ============================== -->
+<section class="page paper page--shell" data-screen-label="21 Typography">
+  <div class="page-num">21 / 18</div>
+  <div class="page-tag">Visual Identity — Typography</div>
+
+  <div class="eyebrow"><span class="dot"></span>Typography</div>
+  <h2 class="h1" style="margin-top:18px;max-width:22ch;">A pairing built for<br><em>editorial calm.</em></h2>
+
+  <div style="margin-top:56px;border-top:1px solid var(--rule);padding-top:32px;">
+    <div class="grid cols-2" style="gap:48px;align-items:end;">
+      <div>
+        <div class="eyebrow">Primary · Headlines</div>
+        <div style="font-family:var(--serif);font-weight:400;font-size:clamp(120px,17vw,240px);line-height:.82;letter-spacing:-.02em;margin-top:12px;">Romana</div>
+      </div>
+      <div>
+        <p class="body body--lg" style="max-width:42ch;">A serif typeface with a distinctive cut in the curve of the lowercase <em>j</em> and <em>f</em> — harkening to cyclical, free-flowing waves. Used in regular (roman) weight only. Never bold. Set uppercase or sentence case for headings.</p>
+      </div>
+    </div>
+    <div class="alpha" style="margin-top:24px;border-top:1px solid var(--rule-soft);padding-top:18px;">A a B b C c D d E e F <em>f</em> G g H h I i <em>j</em> J K k L l M m N n O o P p Q q R r S s T t U u V v W w X x Y y Z z &nbsp; 0 1 2 3 4 5 6 7 8 9</div>
+  </div>
+
+  <div style="margin-top:48px;border-top:1px solid var(--rule);padding-top:32px;">
+    <div class="grid cols-2" style="gap:48px;align-items:end;">
+      <div>
+        <div class="eyebrow">Secondary · Body &amp; UI</div>
+        <div style="font-family:var(--sans);font-weight:500;font-size:clamp(120px,17vw,240px);line-height:.82;letter-spacing:-.04em;margin-top:12px;">Graphik</div>
+      </div>
+      <div>
+        <p class="body body--lg" style="max-width:42ch;">Geometric sans serif. Shapes constructed from circles and straight lines. Heritage traced to Bauhaus designers, mid-1920s. Used in all body copy and UI text. Regular and Medium weights.</p>
+      </div>
+    </div>
+    <div class="alpha-sans" style="margin-top:24px;border-top:1px solid var(--rule-soft);padding-top:18px;">A a B b C c D d E e F f G g H h I i J j K k L l M m N n O o P p Q q R r S s T t U u V v W w X x Y y Z z &nbsp; 0 1 2 3 4 5 6 7 8 9</div>
+  </div>
+
+  <div class="grid cols-4" style="gap:32px;margin-top:48px;border-top:1px solid var(--rule);padding-top:24px;">
+    <div class="stack gap-8"><span class="eyebrow">Display</span><span style="font-family:var(--serif);font-size:32px;line-height:1;">Romana 96/92 -2%</span></div>
+    <div class="stack gap-8"><span class="eyebrow">Headline</span><span style="font-family:var(--serif);font-size:24px;line-height:1.05;">Romana 56/60</span></div>
+    <div class="stack gap-8"><span class="eyebrow">Body</span><span style="font-family:var(--sans);font-size:18px;line-height:1.5;font-weight:500;">Graphik Regular 15/24</span></div>
+    <div class="stack gap-8"><span class="eyebrow">Caption / UI</span><span class="mono" style="font-size:13px;color:var(--ink);">GRAPHIK MEDIUM · 11/16 · TRACK 0.18EM</span></div>
+  </div>
+
+  <div class="page-foot"><span>Part Three — Identity</span><span>Typography</span></div>
+</section>
+
+<!-- ============================== 19. PHOTOGRAPHY ============================== -->
+<section class="page paper page--shell" data-screen-label="22 Photography">
+  <div class="page-num">22 / 19</div>
+  <div class="page-tag">Visual Identity — Photography</div>
+
+  <div class="grid cols-7-5" style="gap:80px;align-items:start;">
+    <div>
+      <div class="eyebrow"><span class="dot"></span>Photography</div>
+      <h2 class="h1" style="margin-top:18px;max-width:18ch;">Clean but<br><em>nostalgic.</em></h2>
+      <p class="body body--lg" style="margin-top:24px;max-width:48ch;">Photography should feel clean but nostalgic, embodying a hazy glow and carefree spirit. Each photo should be hard to place in time, but should feel like it carries a history.</p>
+      <p class="body body--lg" style="margin-top:14px;max-width:48ch;">We use film photography, black and white photography, and anything that feels natural, raw, and unedited. Use colours that are natural, muted, and quietly alive.</p>
+    </div>
+    <div>
+      <img src="assets/face-hands.jpg" alt="Hands over eyes" style="width:100%;aspect-ratio:3/4;object-fit:cover;border-radius:2px;">
+    </div>
+  </div>
+
+  <div class="mosaic" style="margin-top:64px;">
+    <div class="m m-c4"><img src="assets/lifestyle.png" alt="" style="aspect-ratio:16/7;"></div>
+    <div class="m m-c4"><img src="assets/face-eyeshadow.jpg" alt="" style="aspect-ratio:4/5;"></div>
+    <div class="m m-c4"><img src="assets/hero-faces.png" alt="" style="aspect-ratio:4/5;"></div>
+  </div>
+
+  <div class="mosaic" style="margin-top:18px;">
+    <div class="m m-c12"><img src="assets/laughs.png" alt="" style="aspect-ratio:21/9;object-fit:cover;"></div>
+  </div>
+
+  <div class="rule" style="margin:48px 0 24px;"></div>
+  <div class="grid cols-4" style="gap:24px;">
+    <div class="stack gap-6"><span class="eyebrow">Use</span><span class="caps">Film grain</span></div>
+    <div class="stack gap-6"><span class="eyebrow">Use</span><span class="caps">B&amp;W portrait</span></div>
+    <div class="stack gap-6"><span class="eyebrow">Use</span><span class="caps">Candid &amp; carefree</span></div>
+    <div class="stack gap-6"><span class="eyebrow">Avoid</span><span class="caps">Stock · staged · glossy</span></div>
+  </div>
+
+  <div class="page-foot"><span>Part Three — Identity</span><span>Photography</span></div>
+</section>
+
+<!-- ============================== 19b. PHOTO MOOD / REFERENCE ============================== -->
+<section class="page paper page--shell" data-screen-label="23 Photo Reference">
+  <div class="page-num">23 / 19b</div>
+  <div class="page-tag">Visual Identity — Photography</div>
+
+  <div class="eyebrow"><span class="dot"></span>Photography — Reference</div>
+  <h2 class="h2" style="margin-top:18px;max-width:24ch;">Mood board for art direction.</h2>
+
+  <div class="figure" style="margin-top:36px;">
+    <img src="assets/photo-mood.png" alt="Photography mood board">
+    <div class="cap">Mood — California-leaning, sun-bleached, hand-held</div>
+  </div>
+
+  <div class="figure" style="margin-top:36px;">
+    <img src="assets/photo-grid.png" alt="Photography guidelines">
+    <div class="cap">Per-image notes — carry these into shoot briefs</div>
+  </div>
+
+  <div class="page-foot"><span>Part Three — Identity</span><span>Photography Reference</span></div>
+</section>
+
+<!-- ============================== 20. WORD ART ============================== -->
+<section class="page paper page--shell" data-screen-label="24 Word Art">
+  <div class="page-num">24 / 20</div>
+  <div class="page-tag">Visual Identity — Word Art</div>
+
+  <div class="grid cols-7-5" style="gap:80px;align-items:start;">
+    <div>
+      <div class="eyebrow"><span class="dot"></span>Word art</div>
+      <h2 class="h1" style="margin-top:18px;max-width:18ch;">Hand-found,<br><em>never machined.</em></h2>
+      <p class="body body--lg" style="margin-top:24px;max-width:48ch;">Found word art and quotes should not feel like they were made on a computer. Hand lettering should feel either (a) decorative, calligraphic, and retro — or (b) quickly, casually drawn.</p>
+      <p class="body body--lg" style="margin-top:14px;max-width:48ch;">When in situ — printed on a tote, sign, t-shirt — even better.</p>
+    </div>
+    <div>
+      <div class="gb" style="grid-template-columns:1fr;gap:16px;">
+        <div class="cell good"><div class="tag">Use</div><p>Retro lettering with gentle gradients</p></div>
+        <div class="cell good"><div class="tag">Use</div><p>Photos of quotes in situ — adds texture &amp; context</p></div>
+        <div class="cell bad"><div class="tag">Avoid</div><p>Overly digital, glossy display fonts</p></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="figure" style="margin-top:48px;">
+    <img src="assets/wordart.png" alt="Word art examples">
+    <div class="cap">Reference — handmade lettering, found type, photographed quotes</div>
+  </div>
+
+  <div class="page-foot"><span>Part Three — Identity</span><span>Word Art</span></div>
+</section>
+
+<!-- ============================== 21. VISUAL ART ============================== -->
+<section class="page paper page--shell" data-screen-label="25 Visual Art">
+  <div class="page-num">25 / 21</div>
+  <div class="page-tag">Visual Identity — Visual Art</div>
+
+  <div class="grid cols-7-5" style="gap:80px;align-items:start;">
+    <div>
+      <div class="eyebrow"><span class="dot"></span>Visual art</div>
+      <h2 class="h1" style="margin-top:18px;max-width:18ch;">Cut, collaged,<br><em>handmade.</em></h2>
+      <p class="body body--lg" style="margin-top:24px;max-width:48ch;">Graphic material should appear handmade — we love interesting shapes and solid colours. Use shapes that appear to be cut out and collaged. We love abstract, organic, natural shapes — especially circles and repetition. These compositions tie back to our logo and the cyclical spread of kindness.</p>
+      <p class="body body--lg" style="margin-top:14px;max-width:48ch;">Palettes should be simple and straightforward — 1–3 strong shades, built around the primary brand colours.</p>
+    </div>
+    <div>
+      <img src="assets/art-1.png" alt="" style="width:100%;aspect-ratio:3/2;object-fit:cover;">
+    </div>
+  </div>
+
+  <div class="figure" style="margin-top:48px;">
+    <img src="assets/visualart.png" alt="Visual art reference">
+    <div class="cap">Reference — handmade compositions, primary palette, simple geometry</div>
+  </div>
+
+  <div class="grid cols-2" style="gap:32px;margin-top:36px;">
+    <div class="figure">
+      <img src="assets/art-posters.png" alt="" style="aspect-ratio:3/1;object-fit:cover;">
+      <div class="cap">Editorial posters — line, line, line</div>
+    </div>
+    <div class="figure">
+      <img src="assets/art-faces.png" alt="" style="aspect-ratio:3/1;object-fit:cover;">
+      <div class="cap">Continuous-line portraits — community made visible</div>
+    </div>
+  </div>
+
+  <div class="page-foot"><span>Part Three — Identity</span><span>Visual Art</span></div>
+</section>
+
+<!-- ============================== 22. QUOTE BACKGROUNDS ============================== -->
+<section class="page paper page--shell" data-screen-label="26 Quote Treatments">
+  <div class="page-num">26 / 22</div>
+  <div class="page-tag">Visual Identity — Quote Treatments</div>
+
+  <div class="eyebrow"><span class="dot"></span>Quote treatments</div>
+  <h2 class="h1" style="margin-top:18px;max-width:22ch;">Two ways to set<br>a quote that <em>matters.</em></h2>
+
+  <div class="grid cols-2" style="gap:32px;margin-top:48px;">
+    <!-- Solid canvas -->
+    <div class="figure">
+      <div style="aspect-ratio:1/1;background:var(--palm);position:relative;overflow:hidden;display:flex;align-items:center;justify-content:center;padding:48px;color:var(--shell);text-align:center;">
+        <div style="position:absolute;inset:0;background-image:radial-gradient(circle at 30% 20%, rgba(255,255,255,.06), transparent 60%), radial-gradient(circle at 70% 90%, rgba(0,0,0,.18), transparent 55%);"></div>
+        <div style="position:relative;">
+          <div class="mono" style="color:rgba(249,239,229,.7);margin-bottom:18px;">You</div>
+          <div style="font-family:var(--serif);font-size:64px;line-height:.95;letter-spacing:-.01em;">GET</div>
+          <div class="mono" style="color:rgba(249,239,229,.7);margin:14px 0;">what you</div>
+          <div style="font-family:var(--serif);font-size:64px;line-height:.95;letter-spacing:-.01em;">GIVE</div>
+        </div>
+      </div>
+      <div class="cap"><b style="color:var(--ink);">01 — Solid Canvas Quotes.</b>&nbsp;&nbsp;Works for shorter quotes with type repetition. Alternate Graphik (all caps) with Romana (caps or lowercase). Use pre-made canvas-textured backgrounds.</div>
+    </div>
+
+    <!-- Gradient -->
+    <div class="figure">
+      <div style="aspect-ratio:1/1;position:relative;overflow:hidden;display:flex;align-items:center;justify-content:center;padding:48px;color:var(--shell);text-align:left;background:radial-gradient(circle at 30% 30%, var(--sol) 0%, var(--poppy) 70%, #6b0000 110%);">
+        <div style="position:relative;font-family:var(--mono);font-size:14px;letter-spacing:.18em;line-height:2.4;text-transform:uppercase;">
+          <div>If <span style="margin-left:60px;">you want</span></div>
+          <div style="margin-left:30px;">something</div>
+          <div>you've never<span style="margin-left:30px;">had</span></div>
+          <div style="margin:18px 0;">&nbsp;</div>
+          <div>you have to <span style="margin-left:40px;">do</span></div>
+          <div style="margin-left:24px;">something</div>
+          <div>you've never <span style="margin-left:20px;">done.</span></div>
+        </div>
+      </div>
+      <div class="cap"><b style="color:var(--ink);">02 — Gradient Quotes.</b>&nbsp;&nbsp;Better for longer quotes. Set in Graphik regular, all caps, with generous letter-spacing. Type can be left-aligned, or misaligned like magnetic poetry.</div>
+    </div>
+  </div>
+
+  <div class="figure" style="margin-top:36px;">
+    <img src="assets/quote-bg.png" alt="Quote backgrounds reference">
+    <div class="cap">Reference — eight stock backgrounds available in all four primary colours</div>
+  </div>
+
+  <div class="page-foot"><span>Part Three — Identity</span><span>Quote Treatments</span></div>
+</section>
+
+<!-- ============================== 23. CONSUMER NOTIFICATIONS ============================== -->
+<section class="page paper page--shell" data-screen-label="27 Notifications">
+  <div class="page-num">27 / 23</div>
+  <div class="page-tag">Product — Consumer</div>
+
+  <div class="grid cols-7-5" style="gap:80px;align-items:start;">
+    <div>
+      <div class="eyebrow"><span class="dot"></span>Consumer notifications</div>
+      <h2 class="h1" style="margin-top:18px;max-width:20ch;">Warm, personal,<br><em>real-time.</em></h2>
+      <p class="body body--lg" style="margin-top:18px;max-width:48ch;">Not "Congratulations!" Not "Amazing news!" Just the fact. Notifications carry the chain forward — they don't perform the moment.</p>
+    </div>
+    <div class="stack gap-16">
+      <div class="notif">
+        <div class="app">L</div>
+        <div><div class="title">Your LIF was opened.</div><div class="body-t">Rachel just unwrapped a Wonder Valley gift you started.</div></div>
+        <div class="time">now</div>
+      </div>
+      <div class="notif">
+        <div class="app">L</div>
+        <div><div class="title">Your LIF was redeemed.</div><div class="body-t">Rachel chose the desert clay set, $84.</div></div>
+        <div class="time">2m</div>
+      </div>
+      <div class="notif">
+        <div class="app">L</div>
+        <div><div class="title">Your LIF was loved forward.</div><div class="body-t">Rachel sent a LIF to Mike. The chain is moving.</div></div>
+        <div class="time">14m</div>
+      </div>
+      <div class="notif">
+        <div class="app">L</div>
+        <div><div class="title">Your LIF reached Sarah.</div><div class="body-t">Three people downstream from you, and counting.</div></div>
+        <div class="time">2h</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="rule" style="margin:48px 0 24px;"></div>
+  <div class="grid cols-3" style="gap:32px;">
+    <div class="stack gap-8"><span class="eyebrow">Tone</span><span class="h3">State the fact.</span></div>
+    <div class="stack gap-8"><span class="eyebrow">Tense</span><span class="h3">Past tense, completed action.</span></div>
+    <div class="stack gap-8"><span class="eyebrow">Length</span><span class="h3">One line title, one line body.</span></div>
+  </div>
+
+  <div class="page-foot"><span>Part Four — Product</span><span>Consumer Notifications</span></div>
+</section>
+
+<!-- ============================== 24. MERCHANT DASHBOARD ============================== -->
+<section class="page paper page--shell" data-screen-label="28 Dashboard">
+  <div class="page-num">28 / 24</div>
+  <div class="page-tag">Product — Merchant</div>
+
+  <div class="eyebrow"><span class="dot"></span>Merchant dashboard</div>
+  <h2 class="h1" style="margin-top:18px;max-width:24ch;">Human proof first.<br><em>Operator metrics second.</em></h2>
+
+  <div class="dash" style="margin-top:48px;">
+    <div class="dash-head">
+      <div>
+        <div class="who">Wonder Valley · This week</div>
+        <h4>4 people showed up because Amy chose Rachel.</h4>
+      </div>
+      <div class="who">Live</div>
+    </div>
+
+    <div class="chain">
+      <span class="node">Amy</span><span class="arr">→</span>
+      <span class="node">Rachel</span><span class="arr">→</span>
+      <span class="node">Sarah</span><span class="arr">→</span>
+      <span class="node">Mike</span>
+    </div>
+
+    <div class="signals">
+      <span class="sig on">Opened</span>
+      <span class="sig on">Used</span>
+      <span class="sig on">Thank-you</span>
+      <span class="sig live">LIF'd forward</span>
+    </div>
+
+    <p class="body" style="margin-top:24px;color:#444;max-width:60ch;">You don't get likes. You get live intent — and the customers that follow. This isn't a campaign. It's behaviour becoming infrastructure.</p>
+
+    <div class="metrics">
+      <div class="m"><div class="l">Forward rate</div><div class="v">37<small>%</small></div><div class="delta">+8 vs last wk</div></div>
+      <div class="m"><div class="l">New customers · LIF</div><div class="v">142</div><div class="delta">27% of new</div></div>
+      <div class="m"><div class="l">CAC saved vs paid</div><div class="v">$1,400</div><div class="delta">Same 7 customers</div></div>
+      <div class="m"><div class="l">Revenue lift</div><div class="v">+18<small>%</small></div><div class="delta">vs baseline day</div></div>
+    </div>
+  </div>
+
+  <div class="grid cols-3" style="gap:48px;margin-top:48px;">
+    <div>
+      <div class="eyebrow">Live signals</div>
+      <ul class="ulist" style="margin-top:14px;">
+        <li>Opened rate</li>
+        <li>Redeemed rate</li>
+        <li>Thank-you rate</li>
+        <li>LIF forward rate</li>
+      </ul>
+    </div>
+    <div>
+      <div class="eyebrow">Growth</div>
+      <ul class="ulist" style="margin-top:14px;">
+        <li>New customers attributed to LIF</li>
+        <li>K (chain growth) + avg reach per LIF</li>
+        <li>CAC saved vs paid media</li>
+        <li>LIF revenue — gift card + incremental</li>
+      </ul>
+    </div>
+    <div>
+      <div class="eyebrow">CAC delta · example</div>
+      <p class="h3" style="margin-top:14px;">$1,400 saved — same 7 customers, no ad spend.</p>
+      <p class="small" style="margin-top:8px;color:rgba(47,43,43,.7);">Revenue lift: +18% vs a normal day baseline.<br>Customer-funded acquisition: 27% of new customers this week.</p>
+    </div>
+  </div>
+
+  <div class="page-foot"><span>Part Four — Product</span><span>Merchant Dashboard</span></div>
+</section>
+
+<!-- ============================== 25. CORE PRODUCT TRUTHS ============================== -->
+<section class="page paper page--blue" data-screen-label="29 Product Truths">
+  <div class="page-num">29 / 25</div>
+  <div class="page-tag">Product — Truths</div>
+
+  <div class="eyebrow"><span class="dot"></span>Core product truths</div>
+  <h2 class="display" style="margin-top:24px;font-size:clamp(60px,8vw,130px);">LIF is a <em>moment</em><br>product.</h2>
+  <p class="lede" style="margin-top:24px;max-width:60ch;color:rgba(249,239,229,.85);">It lives in notifications. The product is not an app. It is a sequence of moments.</p>
+
+  <div class="truth-grid" style="margin-top:64px;">
+    <div class="truth" style="border-top-color:rgba(249,239,229,.25);">
+      <span class="n" style="color:rgba(249,239,229,.7)">01</span>
+      <h4 style="color:var(--shell);">Authorship is the reward.</h4>
+      <p style="color:rgba(249,239,229,.85);">Not a leaderboard. Not a score. Not a social feed.</p>
+    </div>
+    <div class="truth" style="border-top-color:rgba(249,239,229,.25);">
+      <span class="n" style="color:rgba(249,239,229,.7)">02</span>
+      <h4 style="color:var(--shell);">Privacy is the design.</h4>
+      <p style="color:rgba(249,239,229,.85);">Visibility is personal, not public.</p>
+    </div>
+    <div class="truth" style="border-top-color:rgba(249,239,229,.25);">
+      <span class="n" style="color:rgba(249,239,229,.7)">03</span>
+      <h4 style="color:var(--shell);">Action and inaction are intentional.</h4>
+      <p style="color:rgba(249,239,229,.85);">Both are outcomes we respect.</p>
+    </div>
+    <div class="truth" style="grid-column:1/-1;border-top-color:rgba(249,239,229,.25);">
+      <span class="n" style="color:rgba(249,239,229,.7)">04</span>
+      <h4 style="color:var(--shell);max-width:24ch;">We never pressure. We create the right moment and let humans choose.</h4>
+    </div>
+  </div>
+
+  <div class="page-foot"><span>Part Four — Product</span><span>Core Product Truths</span></div>
+</section>
+
+<!-- ============================== 26. STRATEGIC FOUNDATION ============================== -->
+<section class="page paper page--shell" data-screen-label="30 Strategy">
+  <div class="page-num">30 / 26</div>
+  <div class="page-tag">Strategy</div>
+
+  <div class="eyebrow"><span class="dot"></span>Strategic foundation</div>
+  <h2 class="h1" style="margin-top:18px;max-width:24ch;">Desirable.<br>Feasible.<br><em>Viable.</em></h2>
+
+  <div class="grid cols-3" style="gap:48px;margin-top:56px;">
+    <div class="stack gap-16" style="border-top:2px solid var(--palm);padding-top:24px;">
+      <span class="mono" style="color:var(--palm);">Desirable</span>
+      <h3 class="h3">People already want to share things they love.</h3>
+      <p class="body">The instinct is real. Lifehood proved it with zero incentives. We didn't manufacture demand. We found it.</p>
+    </div>
+    <div class="stack gap-16" style="border-top:2px solid var(--bluejean);padding-top:24px;">
+      <span class="mono" style="color:var(--bluejean);">Feasible</span>
+      <h3 class="h3">No new behaviour required.</h3>
+      <p class="body">Jody buys at checkout. Amy redeems on the brand's site. The forward prompt fires at the moment of gratitude. It works within infrastructure that already exists.</p>
+    </div>
+    <div class="stack gap-16" style="border-top:2px solid var(--poppy);padding-top:24px;">
+      <span class="mono" style="color:var(--poppy);">Viable</span>
+      <h3 class="h3">Brands pay to acquire new customers.</h3>
+      <p class="body">Word-of-mouth acquisition already happens — it's just invisible and uncaptured. LIF makes it measurable and billable.</p>
+    </div>
+  </div>
+
+  <div class="page-foot"><span>Part Four — Strategy</span><span>Strategic Foundation</span></div>
+</section>
+
+<!-- ============================== 27. WHY NO ONE BUILT THIS ============================== -->
+<section class="page paper page--shell" data-screen-label="31 Why No One">
+  <div class="page-num">31 / 27</div>
+  <div class="page-tag">Strategy</div>
+
+  <div class="eyebrow"><span class="dot"></span>Why no one built this</div>
+  <h2 class="h1" style="margin-top:18px;max-width:26ch;">Four reasons<br>the gap existed.</h2>
+
+  <div style="margin-top:56px;">
+    <div class="found-row">
+      <div class="label">01 — Incumbent incentive</div>
+      <div class="text--sm text">The gift card industry was built on breakage. Incumbents had no incentive to look at post-redemption behaviour.</div>
+    </div>
+    <div class="found-row">
+      <div class="label">02 — Wrong direction</div>
+      <div class="text--sm text">Every word-of-mouth play went the wrong direction. Referral programs replaced gratitude with coupons.</div>
+    </div>
+    <div class="found-row">
+      <div class="label">03 — Pattern unlegible</div>
+      <div class="text--sm text">The Venmo pattern required Venmo to exist first. The playbook wasn't legible until it was proven.</div>
+    </div>
+    <div class="found-row">
+      <div class="label">04 — Urgent, but invisible</div>
+      <div class="text--sm text">iOS14 made the problem urgent — and nobody had the infrastructure.</div>
+    </div>
+  </div>
+
+  <div class="page-foot"><span>Part Four — Strategy</span><span>Why No One Built This</span></div>
+</section>
+
+<!-- ============================== 28. THE FUTURE ============================== -->
+<section class="page paper page--ink" data-screen-label="32 The Future">
+  <div class="page-num">32 / 28</div>
+  <div class="page-tag">Strategy</div>
+
+  <div class="grid cols-7-5" style="gap:80px;align-items:start;">
+    <div>
+      <div class="eyebrow"><span class="dot"></span>The future</div>
+      <h2 class="display" style="margin-top:24px;">As AI saturates the internet,<br>human recommendation becomes<br>more valuable — <em>not less.</em></h2>
+    </div>
+    <div class="stack gap-32" style="padding-top:8px;">
+      <p class="pull" style="font-size:clamp(32px,3.6vw,52px);color:var(--shell);">The rarest signal in commerce is no longer attention. <em>It is trust.</em></p>
+      <div class="rule rule--ink"></div>
+      <p class="body body--lg" style="color:rgba(249,239,229,.82);max-width:42ch;">Technology keeps forgetting: people will always be people.</p>
+      <p class="body body--lg" style="color:rgba(249,239,229,.82);max-width:42ch;">People still want to feel chosen. To feel seen. To know they mattered. To share things that moved them.</p>
+      <p class="body body--lg" style="color:rgba(249,239,229,.82);max-width:42ch;">Commerce optimized for efficiency. <b>LIF optimizes for human movement.</b></p>
+    </div>
+  </div>
+
+  <div class="page-foot"><span>Part Four — Strategy</span><span>The Future</span></div>
+</section>
+
+<!-- ============================== CLOSER ============================== -->
+<section class="page paper page--sol" data-screen-label="33 Closer">
+  <div class="page-num" style="color:rgba(47,43,43,.55)">33 / End</div>
+  <div class="page-tag" style="color:rgba(47,43,43,.55)">Love It Forward</div>
+
+  <div style="height:18vh;"></div>
+  <h2 class="closer-title">Give&nbsp;Good.<br>Feel&nbsp;Good.<br><em>Love It Forward.</em></h2>
+
+  <div style="margin-top:80px;display:flex;justify-content:space-between;align-items:flex-end;gap:32px;flex-wrap:wrap;">
+    <div class="inline-mark" style="gap:14px;color:var(--notblack);">
+      <span class="lif-mark" role="img" aria-label="LIF mark" style="width:48px;height:48px;"></span>
+      <img src="assets/wordmark.png" alt="LIF" style="height:28px;">
+    </div>
+    <div class="caps" style="color:var(--notblack);">loveitforward.co</div>
+  </div>
+
+  <div class="page-foot" style="color:rgba(47,43,43,.55)"><span>LIF Brand Guide · Edition 02</span><span>End</span></div>
+</section>
+
+<!-- Side index -->
+<nav class="index" id="sideIndex" aria-label="Page jump"></nav>
+
+<script>
+  // Build side index
+  (function(){
+    const pages = document.querySelectorAll('section.page');
+    const nav = document.getElementById('sideIndex');
+    pages.forEach((p, i) => {
+      const a = document.createElement('a');
+      a.href = '#' + (p.id || 'p'+i);
+      if (!p.id) p.id = 'p'+i;
+      a.title = p.getAttribute('data-screen-label') || ('Page ' + (i+1));
+      nav.appendChild(a);
+    });
+    const links = nav.querySelectorAll('a');
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting && e.intersectionRatio > 0.4) {
+          const idx = Array.from(pages).indexOf(e.target);
+          links.forEach(l => l.classList.remove('on'));
+          if (idx >= 0 && links[idx]) links[idx].classList.add('on');
+        }
+      });
+    }, {threshold:[0,0.4,0.6,1]});
+    pages.forEach(p => io.observe(p));
+  })();
+</script>
+
+</body>
+</html>
